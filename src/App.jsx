@@ -69,3 +69,67 @@
 
 
 // Props drilling is a process in React where data is passed from a top-level parent component down to a deeply nested child component through several intermediate components, which act merely as a courier service because they do not actually need that data. We avoid using it in large projects because it creates unnecessary code redundancy, makes the codebase extremely difficult to maintain, and tracking down bugs or renaming props across five to ten levels becomes a nightmare. Instead of forcing middle components to pass down irrelevant data, developers prefer alternatives like the React Context API or Redux, which allow the data to fly directly from the source to the target component without touching the ones in between.
+
+
+// Use state with UI control logic.
+// everyone teach you to make a counter with you state but i will show you real use case.
+
+// import React, { useState } from 'react'
+
+
+// function App() {
+//     const [toggle, settoggle] = useState("light");
+
+// function changetoggle() {
+//     settoggle(toggle === "light" ? "dark" : "light")
+// }
+
+//   return (
+//     <div style={{ border:"2px solid black",backgroundColor: toggle === "light" ? "white" : "black", width:"200px", color: toggle === "light" ? "black" : "white"}}>
+//       <h1>Hello</h1>
+//       <button onClick={changetoggle}>
+//         Chagne to {toggle === "light" ? "dark" : "light"} mode
+//       </button>
+
+
+//       </div>
+//   )
+// }
+
+// export default App
+
+// import React, { useState } from 'react';
+
+// function Sidebar() {
+//   // State banayi: shuru mein sidebar band (false) hoga
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   return (
+//     <div>
+//       {/* Button par click karne se state ulti (toggle) ho jayegi */}
+//       <button onClick={() => setIsOpen(!isOpen)}>
+//         {isOpen ? 'Close Sidebar' : 'Open Sidebar'}
+//       </button>
+
+//       {/* Agar isOpen true hai, toh sidebar dikhao, nahi toh chhupa do */}
+//       <div style={{
+//         width: '250px',
+//         height: '100vh',
+//         backgroundColor: '#333',
+//         color: '#fff',
+//         position: 'fixed',
+//         left: isOpen ? '0px' : '-250px', // UI control logic
+//         transition: '0.3s' // Smooth animation ke liye
+//       }}>
+//         <h3>Sidebar Menu</h3>
+//         <ul>
+//           <li>Home</li>
+//           <li>Profile</li>
+//           <li>Settings</li>
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Sidebar;
