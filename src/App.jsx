@@ -133,3 +133,214 @@
 // }
 
 // export default Sidebar;
+
+
+// EVENT HANDlING IN REACT :-
+// 1. onClick Event
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+
+//     const [count, setcount] = useState(0);
+
+//   return (
+//     <div>
+//       <h1>{count}</h1>
+
+//       <button
+//       onClick={()=>setcount(count+1)}
+//       >+1</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// different way to use onclick 
+// Named funtion
+// <button onClick={handleBuyClick}>Buy Now</button>
+
+
+// 2. onChange Event
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+//     const [onChange, setonChange] = useState('');
+//   return (
+//     <div>
+//       <h1>{onChange}</h1>
+//       <input type="text" 
+//       placeholder='Write something to track'
+//       value={onChange}
+//       onChange={e => setonChange(e.target.value)}
+//       />
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// 3. onSubmit Event
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+//     const [name, setname] = useState('');
+//     const [message, setmessage] = useState('');
+
+//     function handlesubmit(e) {
+//         e.preventDefault();
+//         setmessage(name)
+//     }
+//   return (
+//     <div>
+//       <form onSubmit={handlesubmit}>
+//         <label>Enter your name</label>
+//         <input type="text" 
+//         value={name}
+//         onChange={e => setname(e.target.value)}
+//         />
+//         <button type='submit'>submit</button>
+//       </form>
+//       {message !== '' && <p style={{ fontWeight: 'bold', color: 'blue' }}>{message}</p>}
+//     </div>
+//   )
+// }
+
+// export default App
+
+// 4. onMouse event :-
+
+
+// import React, { useState } from 'react';
+
+// function HoverCard() {
+//   // State: shuru mein card ka background color 'white' hoga
+//   const [bgColor, setBgColor] = useState('white');
+
+//   return (
+//     <div 
+//       // Jab mouse andar aaye toh state 'yellow' kar do
+//       onMouseEnter={() => setBgColor('lightyellow')}
+//       // Jab mouse bahar jaye toh wapas 'white' kar do
+//       onMouseLeave={() => setBgColor('white')}
+//       style={{
+//         backgroundColor: bgColor,
+//         border: '2px solid #333',
+//         padding: '30px',
+//         textAlign: 'center',
+//         transition: '0.3s', // Smooth color change ke liye
+//         cursor: 'pointer'
+//       }}
+//     >
+//       <h3>Is Card Par Mouse Lekar Aao!</h3>
+//       <p>Abhi background color hai: **{bgColor}**</p>
+//     </div>
+//   );
+// }
+
+// export default HoverCard
+
+// import React, { useState } from 'react';
+
+// export default function HoverDropdown() {
+//   // State to track if the dropdown menu is visible
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   return (
+//     <div 
+//       style={containerStyle}
+//       onMouseEnter={() => setIsOpen(true)}
+//       onMouseLeave={() => setIsOpen(false)}
+//     >
+//       <button style={buttonStyle}>
+//         Hover Me ▾
+//       </button>
+
+//       {isOpen && (
+//         <ul style={menuStyle}>
+//           <li style={itemStyle}><a href="#profile">Profile</a></li>
+//           <li style={itemStyle}><a href="#settings">Settings</a></li>
+//           <li style={itemStyle}><a href="#logout">Logout</a></li>
+//         </ul>
+//       )}
+//     </div>
+//   );
+// }
+
+// // Simple Inline Styles for Demonstration
+// const containerStyle = {
+//   position: 'relative',
+//   display: 'inline-block',
+// };
+
+// const buttonStyle = {
+//   backgroundColor: '#007bff',
+//   color: 'white',
+//   padding: '10px 20px',
+//   border: 'none',
+//   borderRadius: '4px',
+//   cursor: 'pointer',
+// };
+
+// const menuStyle = {
+//   position: 'absolute',
+//   top: '100%',
+//   left: 0,
+//   backgroundColor: 'white',
+//   boxShadow: '0px 8px 16px rgba(0,0,0,0.1)',
+//   listStyle: 'none',
+//   padding: '10px 0',
+//   margin: 0,
+//   minWidth: '150px',
+//   borderRadius: '4px',
+//   transition : '0.3s',
+//   zIndex: 1,
+// };
+
+// const itemStyle = {
+//   padding: '8px 16px',
+// };
+
+// onKey down/up Event :-
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+
+//     const [keyStatus, setkeyStatus] = useState('koi key nhi dabhi howi');
+//     const [lastPressedkey, setlastPressedkey] = useState('');
+
+//   return (
+//     <div>
+//       <h3>Track keyBoard keys</h3>
+//       <input type="text" 
+//       onKeyDown={(e)=>{
+//         setkeyStatus("key Dabi hoi hy...");
+//         setlastPressedkey(e.key);
+//       }}
+
+//       onKeyUp={()=>{
+//         setkeyStatus('key chod di hy')
+//       }}
+//       />
+//       <div>
+//         <h3>Stauts : {keyStatus}</h3>
+//         <h3>Last key : {lastPressedkey}</h3>
+//       </div>
+
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
