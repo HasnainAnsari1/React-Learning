@@ -344,3 +344,169 @@
 // export default App
 
 
+// Conditional Rendering in React
+// 1. ternary operator '?' ':'
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+
+//     const [theme, settheme] = useState('light');
+
+//   return (
+//     <div style={{height:'200px', width:'200px', backgroundColor: theme === 'light' ? 'white' : 'black', color: theme === 'light' ? 'black' : 'white'}}>
+//       <h1>Hasnain</h1>
+//       <h3>Full Stack Developer</h3>
+//       <button onClick={()=> settheme(theme === 'light' ? 'dark' : 'light')}>
+//         {theme === 'light' ? 'Switch to dark' : 'Switch to light'}
+//       </button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// 2. && Operator 
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+
+//     const [visiblity, setvisiblity] = useState(false);
+
+//   return (
+//     <div>
+//     <div style={{display:"flex"}}>
+//       <h1>What is React</h1>
+//       <button style={{height:'20px', marginTop:'30px' }} onClick={()=> setvisiblity(true)}>
+//         ?
+//       </button>
+//       </div>
+//       {visiblity && (
+//         <p style={{backgroundColor:'lightgray'}}>React is library</p>
+//       )}
+//     </div>
+//   )
+// }
+
+// export default App
+
+// 3. if/else statement
+
+// import React, { useState } from 'react';
+
+// function App() {
+//   // 1. State banayi jiski shuruati value 'loading' hai
+//   const [pageState, setPageState] = useState('loading');
+
+//   // 2. AGAR state 'loading' hai, toh YAHI SE LOADING WALA UI RETURN KAR DO!
+//   // React isse neche wale return par jayega hi nahi.
+//   if (pageState === 'loading') {
+//     return (
+//       <div style={{ textAlign: 'center', marginTop: '50px' }}>
+//         <h1>Loading... Please Wait ⏳</h1>
+//         <p>Website ka data load ho raha hai.</p>
+//         {/* Button par click karne se state 'home' ho jayegi */}
+//         <button onClick={() => setPageState('home')}>
+//           Go to Home Page
+//         </button>
+//       </div>
+//     );
+//   }
+
+//   // 3. AGAR state 'loading' nahi hai (yani 'home' ho chuki hai), 
+//   // toh React upar wale if ko chor kar is neeche wale return par aa jayega.
+//   return (
+//     <div style={{ padding: '20px', backgroundColor: 'lightgreen' }}>
+//       <h1>Welcome to Home Page! 🎉</h1>
+//       <p>Yeh hamari asli website ka data hai jo loading ke baad dikhna tha.</p>
+      
+//       {/* Wapas check karne ke liye button */}
+//       <button onClick={() => setPageState('loading')}>
+//         Wapas Load Karo
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// 4. Switch Case Statement for multiple conditions
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+
+//     const [Status, setStatus] = useState('idle');
+
+//     function RenderStatus(){
+//         switch(Status){
+//             case 'idle' :
+//                 return <p>abhi download shuru nhi howa</p>
+//             case 'loading':
+//                 return <p>Loading ho rhi hy</p>
+//             case 'success':
+//                 return <p>Downloaded</p>
+//             case 'error' :
+//                 return <p>Oops Something Wrong</p>
+//             default :
+//                 return null;
+            
+//         }
+//     }
+//   return (
+//     <div>
+//       <h1>Download your file</h1>
+//       <div><RenderStatus/></div>
+//       <button onClick={()=> setStatus('loading')}>Start Download</button>
+//       <button onClick={()=> setStatus('success')}>Simulate success</button>
+//       <button onClick={()=> setStatus('error')}>Simulate error</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// 5. Object lookup
+
+
+// function Spinner(){
+//     return <h1>Loading hori hy</h1>
+// }
+
+// function Success(){
+//     return <h1>Successfull</h1>
+// }
+
+// function Error(){
+//     return <h1>Some error Detected</h1>
+// }
+
+// const Status_UI = {
+//     loading : <Spinner/>,
+//     success : <Success/>,
+//     error : <Error/>
+
+// }
+
+
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+//     const [Status, setStatus] = useState('loading');
+//   return (
+//     <div>
+//       <div>{Status_UI[Status]}</div>
+//       <button onClick={() => setStatus('loading')}>Set Loading</button>
+//       <button onClick={() => setStatus('success')}>Set Success</button>
+//       <button onClick={() => setStatus('error')}>Set Error</button>
+//     </div>
+//   )
+// }
+
+// export default App
