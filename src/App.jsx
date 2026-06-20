@@ -510,3 +510,56 @@
 // }
 
 // export default App
+
+
+// 1  .map() Array Method
+
+
+// 2 .filter() Array Method
+
+// import React from 'react'
+// import {useState} from 'react'
+
+// function App() {
+
+//     const productsData = [
+//   { id: 1, name: "Notebook", price: 400, category: "home" },
+//   { id: 2, name: "Desk Lamp", price: 1800, category: "home" },
+//   { id: 3, name: "Sunglasses", price: 2200, category: "style" },
+//   { id: 4, name: "Backpack", price: 3500, category: "style" },
+//   { id: 5, name: "Headphones", price: 8500, category: "tech" },
+//   { id: 6, name: "Keyboard", price: 12000, category: "tech" },
+//   { id: 7, name: "Phone", price: 42000, category: "tech" },
+//   { id: 8, name: "Laptop", price: 85000, category: "tech" }
+// ];
+
+//     const [SearchTerm, setSearchTerm] = useState('');
+
+//     const filterProducts = productsData.filter((product)=>{
+//         return product.name.toLowerCase().includes(SearchTerm.toLowerCase());
+//     })
+
+//   return (
+//     <div>
+//         <h1>Search here</h1>
+//         <input type="text"
+//         placeholder="Search Products"
+//         value={SearchTerm} 
+//         onChange={(e) => setSearchTerm(e.target.value)}
+//         />
+//         <h3>Products</h3>
+//         <ul>
+//             {filterProducts.length > 0 ? (
+//                 filterProducts.map((product)=>(
+//                     <li key={product.id}>
+//                         {product.name} - Rs {product.price} ({product.category})</li>
+//                 ))
+//             ):(
+//                 <p>Nothing Found</p>
+//             )}
+//         </ul>
+//     </div>
+//   );
+// }
+
+// export default App
