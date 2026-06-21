@@ -563,3 +563,124 @@
 // }
 
 // export default App
+
+
+// 3.  .filter() + .Sort() Array Method
+
+// import React from 'react'
+// import {useState} from 'react'
+
+// function App() {
+
+//     const productsData = [
+//   { id: 1, name: "Notebook", price: 400, category: "home" },
+//   { id: 2, name: "Desk Lamp", price: 1800, category: "home" },
+//   { id: 3, name: "Sunglasses", price: 2200, category: "style" },
+//   { id: 4, name: "Backpack", price: 3500, category: "style" },
+//   { id: 5, name: "Headphones", price: 8500, category: "tech" },
+//   { id: 6, name: "Keyboard", price: 12000, category: "tech" },
+//   { id: 7, name: "Phone", price: 42000, category: "tech" },
+//   { id: 8, name: "Laptop", price: 85000, category: "tech" }
+// ];
+
+//     const [SearchTerm, setSearchTerm] = useState('');
+//     const [Sort, setSort] = useState('');
+
+//     const filterProducts = productsData.filter((product)=>{
+//         return product.name.toLowerCase().includes(SearchTerm.toLowerCase());
+//     })
+
+//     const sortedProducts = [...filterProducts].sort((a,b)=>{
+//      if (Sort === 'name')       return a.name.localeCompare(b.name);
+//     if (Sort === 'price-low')  return a.price - b.price;
+//     if (Sort === 'price-high') return b.price - a.price;
+
+//     return 0;
+//     })
+
+//   return (
+//     <div>
+//         <h1>Search here</h1>
+//         <input type="text"
+//         placeholder="Search Products"
+//         value={SearchTerm} 
+//         onChange={(e) => setSearchTerm(e.target.value)}
+//         />
+//         <h3>Products</h3>
+//         <ul>
+//             {sortedProducts.length > 0 ? (
+//                 sortedProducts.map((product)=>(
+//                     <li key={product.id}>
+//                         {product.name} - Rs {product.price} ({product.category})</li>
+//                 ))
+//             ):(
+//                 <p>Nothing Found</p>
+//             )}
+//         </ul>
+
+//         <button onClick={()=> setSort('price-low')}>low to high</button>
+//         <button onClick={()=> setSort('price-high')}>hight to low</button>
+
+//     </div>
+//   );
+// }
+
+// export default App
+
+
+// todo with filter method
+
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// function App() {
+
+//   const initialTasks = [
+//     {id:1 , tittle : "Home Work"}
+//   ]
+
+//     const [task, settask] = useState(initialTasks);
+//     const [textInput, settextInput] = useState('');
+
+//     const addTask = (e)=>{
+//       e.preventDefault();
+//       if (textInput.trim() === '') return;
+    
+
+
+//     const newTaskObj = {
+//       id : Date.now(),
+//       tittle : textInput
+//     }
+  
+//     settask(pre => [...pre, newTaskObj]);
+//     settextInput('');
+//   }
+//     const deleteTask = (id)=>{
+//       settask(pre => pre.filter(task => task.id !== id));
+//     };
+
+//   return (
+//     <div>
+//       <h1>Add your todos</h1>
+//       <form onSubmit={addTask}>
+//         <input type="text" 
+//         value={textInput}
+//         onClick={(e)=> settextInput(e.target.value)}
+//         />
+//         <button type='submit'>Add Task</button>
+//       </form>
+//       <ul>
+//         {task.length > 0 ? 
+//         (task.map((task) =>(<li key={task.id}>{task.tittle}
+//         <button onClick={()=>deleteTask(task.id)}>Delete Task</button>
+//         </li>))):(
+//           <p>Sare kaam khatam! Sakoon hi sakoon</p>
+//         )}
+//       </ul>
+//     </div>
+//   )
+// }
+
+// export default App
