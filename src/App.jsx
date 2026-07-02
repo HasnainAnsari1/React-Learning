@@ -684,3 +684,198 @@
 // }
 
 // export default App
+
+
+// first project completed try it on github-project-xi.vercel.app
+
+// Now our phase 2 is started 
+
+// useEffect() HOOK
+
+
+// import React from 'react'
+// import {useState,useEffect} from 'react'
+// function App() {
+//     const [qoute, setQoute] = useState('loading');
+
+//     useEffect(() => {
+//         fetch("https://dummyjson.com/quotes/random")
+//         .then((response)=> response.json())
+//         .then((data)=>{
+//             const Quote = data.quote
+//             setQoute(Quote)
+//         })
+//     }, []);
+
+
+//   return (
+//     <div>
+//       <h1>Random Quotes</h1>
+//       <h3>{qoute}</h3>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React from 'react'
+// import {useState,useEffect} from 'react'   
+
+
+// function App() {
+
+//     const [text, setText] = useState('');
+
+//     useEffect(() => {
+//         if(text.length > 20){
+//             alert("Text limit Full")
+//         }
+//     }, [text])
+    
+//   return (
+//     <div>
+//       <input type="text" 
+//       value={text}
+//       onChange={ e => setText(e.target.value)}      
+//       />
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React, { useState, useEffect } from 'react';
+
+// function App() {
+//   const [seconds, setSeconds] = useState(0);
+
+//   useEffect(() => {
+//     // 1. Humne ek interval (timer) shuru kiya jo har 1 second baad chalega
+//     const myTimer = setInterval(() => {
+//       setSeconds((prev) => prev + 1);
+//       console.log("Timer chal raha hai..."); 
+//     }, 1000);
+
+//     // 2.  CLEANUP FUNCTION
+//     // Jab yeh page band hoga, toh React is return wale function ko khud chalaye ga
+//     return () => {
+//       clearInterval(myTimer); //  Yeh bol raha hai: "Timer ko abhi rok do!"
+//       console.log("Component band hogaya, timer ruk gaya!");
+//     };
+
+//   }, []); // Empty array yani sirf page khulne par shuru hoga
+
+//   return <h1>Seconds: {seconds}</h1>;
+// }
+
+// export default App;
+
+
+// useRef() Hook
+
+// 1. Accessing & Interacting with DOM Elements 
+
+// import React from 'react'
+// import {useRef} from 'react'
+
+// function App() {
+
+//     const inputRef = useRef()
+
+//     function handleFocus(){
+//         inputRef.current.focus()
+
+//         inputRef.current.style.color = 'white'
+//         inputRef.current.style.backgroundColor = 'black'
+//     }
+
+//     function handleDoubleFocus(){
+//         inputRef.current.focus()
+
+//         inputRef.current.style.color = ''
+//         inputRef.current.style.backgroundColor = ''
+//     }
+
+//   return (
+//     <div>
+//         <input ref={inputRef}/>
+//         <br/>
+//         <button onClick={handleFocus} onDoubleClick={handleDoubleFocus}>Focus input</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React from 'react'
+// import { useState,useRef } from 'react'
+
+// function App() {
+
+
+//     const [seconds, setSeconds] = useState(0);
+//     const timerIdRef = useRef(null)
+
+
+//     const handleStart = ()=>{
+
+//         if (timerIdRef.current !== null) return;
+
+//         timerIdRef.current = setInterval(()=>{
+//             setSeconds((pre)=> pre + 1)
+//         },10)
+//     }
+
+//     const handleStop = ()=>{
+//         clearInterval(timerIdRef.current)
+//         timerIdRef.current = null
+//         console.log(timerIdRef.current)
+//     }
+
+//   return (
+//    <div style={{ textAlign: 'center', marginTop: '40px' }}>
+//       <h1>Time Counter: {seconds}s</h1>
+//       <button onClick={handleStart}>Start</button>
+//       <button onClick={handleStop} style={{ marginLeft: '10px' }}>Stop</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useState, useRef } from 'react';
+
+// function App() {
+//   const [renderCount, setRenderCount] = useState(0); // Sirf component ko refresh karne ke liye
+
+//   // 1. Ek aam JavaScript variable
+//   let normalVariable = 0;
+
+//   // 2. Ek useRef wala dabba
+//   const refVariable = useRef(0);
+
+//   const handleTest = () => {
+//     normalVariable = normalVariable + 1; // Variable ko barhaya
+//     refVariable.current = refVariable.current + 1; // Ref ko barhaya
+
+//     console.log("Normal Variable:", normalVariable);
+//     console.log("useRef Variable:", refVariable.current);
+
+//     // Ab hum state badal kar component ko RE-RENDER (refresh) karenge
+//     setRenderCount(prev => prev + 1);
+//   };
+
+//   return (
+//     <div style={{ textAlign: 'center', marginTop: '40px' }}>
+//       <h3>Component Kitni Baar Refresh Hua: {renderCount}</h3>
+      
+//       <button onClick={handleTest}>Value Barhao Aur Render Karo</button>
+      
+//       <p>Console mein dekho farq kya aa raha hai!</p>
+//     </div>
+//   );
+// }
+
+// export default App;
